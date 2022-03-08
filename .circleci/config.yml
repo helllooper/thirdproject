@@ -27,6 +27,9 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+      - run: |
+          mkdir tmp
+          mkdir tmp/workspace
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
