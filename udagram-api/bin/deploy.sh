@@ -1,3 +1,3 @@
-cd ./tmp/workspace/build
+cd build
 printenv > .env
 eb deploy Thirdproject-env
