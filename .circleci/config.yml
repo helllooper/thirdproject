@@ -27,6 +27,11 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - udagram-api/build
+            - udagram-frontend/www
   deploy:
     docker:
       - image: "cimg/base:stable"
@@ -35,6 +40,8 @@ jobs:
       - checkout
       - aws-cli/setup
       - eb/setup
+      - attach_workspace:
+          at: /tmp/workspace
       - run:
           name: Deploy Frontend
           command: |
