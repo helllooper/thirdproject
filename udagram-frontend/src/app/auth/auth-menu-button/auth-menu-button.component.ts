@@ -46,3 +46,5 @@ export class AuthMenuButtonComponent implements OnInit {
   ngOnInit() {}
 
 }
+
+// error
