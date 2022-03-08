@@ -10,7 +10,9 @@ jobs:
     steps:
       - node/install:
           node-version: "14"
-      - aws-cli/setup
+      - aws-cli/setup:
+          aws-access-key-id: $AWS_ACCESS_KEY_ID
+          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
       - eb/setup
       - checkout
       - run:
