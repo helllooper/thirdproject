@@ -6,7 +6,7 @@
     
     "node" : "14"
   },
-  "main": "/server.js",
+  "main": "/var/app/current/server.js",
   "scripts": {
     "start": "node .",
     "tsc": "tsc",
