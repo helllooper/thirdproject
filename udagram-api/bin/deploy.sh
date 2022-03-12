@@ -1,4 +1,4 @@
 cd www
-eb use Finalproject-env
-eb deploy Finalproject-env --label finalproject1
-eb setenv PORT=8080 POSTGRES_USERNAME=$POSTGRES_USERNAME POSTGRES_PASSWORD=$POSTGRES_PASSWORD POSTGRES_DB=$POSTGRES_DB POSTGRES_PORT=$POSTGRES_PORT POSTGRES_HOST=$POSTGRES_HOST AWS_REGION=$AWS_REGION AWS_BUCKET=$AWS_BUCKET
+aws s3 cp Archive.zip s3://elasticbeanstalk-us-east-1-915477644892/Archive.zip
+aws elasticbeanstalk create-application-version --application-name deply-project --version-label 1 --source-bundle S3Bucket="elasticbeanstalk-us-east-1-915477644892",S3Key="Archive.zip"
+aws elasticbeanstalk update-environment --application-name deply-project --environment-name Deplyproject-env --version-label 1 --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=POSTGRES_USERNAME,Value=$POSTGRES_USERNAME,OptionName=POSTGRES_PASSWORD,Value=$POSTGRES_PASSWORD,OptionName=POSTGRES_DB,Value=$POSTGRES_DB,OptionName=POSTGRES_PORT,Value=$POSTGRES_PORT,OptionName=POSTGRES_HOST,Value=$POSTGRES_HOST,OptionName=PORT,Value=8080,OptionName=AWS_REGION,Value=$AWS_REGION,OptionName=AWS_BUCKET,Value=$AWS_BUCKET,OptionName=JWT_SECRET,Value=$JWT_SECRET
