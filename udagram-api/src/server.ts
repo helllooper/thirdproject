@@ -39,5 +39,8 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
     console.log(`press CTRL+C to stop server`);
   });
 })().catch(function(error){
-  console.log(error);
+  console.log('err.name', error.name);
+console.log('err.message', error.message);
+console.log('err.errors', error.errors);
+
 });
