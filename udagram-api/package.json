@@ -8,10 +8,10 @@
   },
   "main": "www/server.js",
   "scripts": {
-    "start": "node .",
+    "start": "node ./www/server.js",
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
-    "prod": "tsc && node ./www/server.js",
+    "prod": "tsc && cp package.json www/package.json",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
     "test": "echo \"Error: no test specified\" && exit 1",
